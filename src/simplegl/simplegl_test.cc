@@ -5,7 +5,6 @@
 
 int main()
 {
-    std::cout << "Hi" << std::endl;
     int width = 640;
     int height = 480;
     SimpleGL::Color c(0.1569, 0.6314, 0.5294, 0.5);
@@ -27,7 +26,6 @@ int main()
 
     s.Update();
 
-    // Exit by keypress or close window button
     while (!s.HasQuit())
     {
         // Twiddle Thumbs
