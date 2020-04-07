@@ -1,3 +1,7 @@
+#ifndef SCENE_H
+#define SCENE_H
+
+#include <vector>
 
 /**
  * A scene object that has a start point, end point, and obstacles
@@ -9,13 +13,34 @@ class Scene {
 
 public:
 
+    struct Rect {
+        int x;
+        int y;
+        int width;
+        int height;
+
+        Rect (int x, int y, int width, int height) :
+            x(x), y(y), width(width), height(height)
+        {
+        }
+    };
+
+    struct Point {
+        int x;
+        int y;
+
+        Point (int x, int y) : x(x), y(y)
+        {
+        }
+    };
+
     /**
      * Create a scene object
      *
      * @param startX, startY The coordinates of the starting position
      * @param endX, endY The coordinates of the ending position
      */
-    Scene(int startX, int startY, int endX, int endY);
+    Scene(int startX, int startY, int endX, int endY, int width, int height);
 
     /**
      * Add a rectangular obstacle to the scene
@@ -24,14 +49,29 @@ public:
      * @param width The width of the rectangle
      * @param height The height of the rectangle
      */
-    void addRectObstacle(int x, int y, int width, int height);
+    void AddRectObstacle(Scene::Rect rect);
+
+    /**
+     * Get the rectangles in the scene
+     *
+     * @returns The rectangles in the scene
+     */
+    std::vector<Scene::Rect> GetRectangles();
+
+    Scene::Point GetStart();
+
+    Scene::Point GetEnd();
+
+    int GetWidth();
+
+    int GetHeight();
 
 private:
 
-
-
-
-
-
+    std::vector<Rect> rectangles_;
+    Scene::Point start_, end_;
+    int width_, height_;
 
 };
+
+#endif

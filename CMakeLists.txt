@@ -17,10 +17,10 @@ FATAL: In-source build is not allowed. Create a separate directory for build fil
 endif()
 
 # Main executable
-#add_executable(test_opengl ${SRC}/test/test_opengl.cc)
+add_executable(motion_plan ${SRC}/motion_plan.cc ${SRC}/scene.cc ${SRC}/astar.cc)
 
+# Test simplegl executable
 add_executable(simplegl_test ${SRC_SIMPLEGL}/simplegl_test.cc)
 find_package(SimpleGL REQUIRED)
 target_link_libraries(simplegl_test simplegl)
-# 
-# include_directories(include)
+
