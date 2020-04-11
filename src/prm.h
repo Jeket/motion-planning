@@ -1,5 +1,5 @@
-#ifndef ASTAR_H
-#define ASTAR_H
+#ifndef PRM_H
+#define PRM_H
 
 #include <random>
 #include <iostream>
@@ -7,10 +7,10 @@
 #include "scene.h"
 #include "graph.h"
 
-class AStar {
+class Prm {
 
 public:
-    AStar(int node_count, int k);
+    Prm(int node_count, int k);
     void NavigateScene(Scene scene);
 
 

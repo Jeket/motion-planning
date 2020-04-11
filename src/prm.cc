@@ -1,26 +1,23 @@
 #include <random>
 #include <iostream>
 
-#include "astar.h"
+#include "prm.h"
 #include "scene.h"
 
 using std::cout, std::endl;
 
-AStar::AStar(int node_count, int k) : node_count_(node_count), k_(k), mt_(rd_())
+Prm::Prm(int node_count, int k) : node_count_(node_count), k_(k), mt_(rd_())
 {
-    // Seed random number generation
-//    std::random_device rd_;
- //   std::mt19937 mt_(rd_)
 }
 
-void AStar::NavigateScene(Scene scene)
+void Prm::NavigateScene(Scene scene)
 {
-    AStar::PopulateGraph(scene);
+    Prm::PopulateGraph(scene);
 
 }
 
 
-void AStar::PopulateGraph(Scene scene)
+void Prm::PopulateGraph(Scene scene)
 {
     start_node_id_ = graph_.AddNode(scene.GetStart());
     end_node_id_ = graph_.AddNode(scene.GetEnd());

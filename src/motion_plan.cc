@@ -1,7 +1,7 @@
 #include<iostream>
 
 #include "scene.h"
-#include "astar.h"
+#include "prm.h"
 #include "graph.h"
 
 using std::cout, std::endl;
@@ -12,8 +12,8 @@ int main() {
     scene.AddRectObstacle(Scene::Rect(22, 33, 44, 55));
     scene.AddRectObstacle(Scene::Rect(22, 33, 44, 55));
 
-    AStar a(5, 2);
-    a.NavigateScene(scene);
+    Prm p(5, 2);
+    p.NavigateScene(scene);
 
     return 0;
 }
