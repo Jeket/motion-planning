@@ -16,6 +16,7 @@ public:
     void AddEdge(int node1_id, int node2_id);
     std::vector<int> GetNeighborIndices(int node_id);
     std::vector<T> GetNeighbors(int node_id);
+    std::vector<T> GetAllNodes();
 
 
 

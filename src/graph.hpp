@@ -52,5 +52,11 @@ std::vector<T> Graph<T>::GetNeighbors(int node_id)
         return neighbors;
 }
 
+template <typename T>
+std::vector<T> Graph<T>::GetAllNodes()
+{
+    return nodes_;
+}
+
 
 #endif

@@ -3,6 +3,8 @@
 
 #include <vector>
 
+#include "graph.h"
+
 /**
  * A scene object that has a start point, end point, and obstacles
  *
@@ -14,8 +16,8 @@ class Scene {
 public:
 
     struct Rect {
-        int x;
-        int y;
+        int x; // x of top left corner
+        int y; // y of top left corner
         int width;
         int height;
 
@@ -66,11 +68,23 @@ public:
 
     int GetHeight();
 
+    bool PointCollides(Scene::Point point);
+
+    Graph<Scene::Point> GetGraph();
+
+    std::vector<int> GetUsedEdges();
+
+    void SetPrm(Graph<Scene::Point> graph, std::vector<int> used_edges);
+
 private:
 
     std::vector<Rect> rectangles_;
     Scene::Point start_, end_;
     int width_, height_;
+
+    Graph<Scene::Point> graph_;
+    std::vector<int> used_edge_indices_;
+
 
 };
 

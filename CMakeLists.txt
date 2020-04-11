@@ -17,7 +17,13 @@ FATAL: In-source build is not allowed. Create a separate directory for build fil
 endif()
 
 # Main executable
-add_executable(motion_plan ${SRC}/motion_plan.cc ${SRC}/scene.cc ${SRC}/prm.cc)
+add_executable(motion_plan
+                ${SRC}/motion_plan.cc
+                ${SRC}/scene.cc
+                ${SRC}/prm.cc
+                ${SRC}/scene_painter.cc)
+find_package(SimpleGL REQUIRED)
+target_link_libraries(motion_plan simplegl)
 
 # Test simplegl executable
 add_executable(simplegl_test ${SRC_SIMPLEGL}/simplegl_test.cc)

@@ -10,10 +10,10 @@ Prm::Prm(int node_count, int k) : node_count_(node_count), k_(k), mt_(rd_())
 {
 }
 
-void Prm::NavigateScene(Scene scene)
+void Prm::NavigateScene(Scene& scene)
 {
     Prm::PopulateGraph(scene);
-
+    scene.SetPrm(graph_, used_edges_);
 }
 
 
@@ -30,8 +30,11 @@ void Prm::PopulateGraph(Scene scene)
     {
         int x = x_dist(mt_);
         int y = y_dist(mt_);
-        cout << x << endl;
-        cout << y << endl;
-        nodes_added++;
+        if (!scene.PointCollides(Scene::Point(x, y)))
+        {
+            graph_.AddNode(Scene::Point(x, y));
+            ++nodes_added;
+        }
     }
+
 }
